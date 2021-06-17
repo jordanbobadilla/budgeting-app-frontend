@@ -1,0 +1,29 @@
+nav {
+    background-color: rgb(189, 224, 136);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 12vh;
+}
+
+.title {
+    font-size: 36px;
+    text-decoration: none;
+    color: #555;
+}
+
+.title:hover, nav a button:hover {
+    color: #777;
+}
+
+nav a button {
+    background-color: transparent;
+    border: 1px solid #999;
+    color: #555;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
