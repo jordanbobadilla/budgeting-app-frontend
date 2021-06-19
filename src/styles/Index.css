@@ -1,0 +1,36 @@
+.index {
+    padding-bottom: 60px;
+}
+
+.index h1{
+    text-align: center;
+    margin: 20px 0;
+    font-size: 36px;
+    color: #555;
+}
+
+.index ul  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.index ul li {
+    width: 80vw;
+    list-style: none;
+}
+
+.index ul div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.index ul div a {
+    color: rgb(99, 133, 49);
+}
+
+.index .date {
+    width: 150px;
+}
+
