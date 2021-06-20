@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router";
 import { apiURL } from "../util/apiURL";
 const API = apiURL();
 
-const TransactionDetails = () => {
+const TransactionDetails = ({deleteTransaction}) => {
   let { index } = useParams();
   let history = useHistory();
   const [transaction, setTransaction] = useState({});
@@ -22,6 +22,11 @@ const TransactionDetails = () => {
     fetchTransaction();
   }, [index]);
 
+  const handleDelete = () => {
+      deleteTransaction(index)
+      history.push("/transactions")
+  }
+
   return (
     <div>
       <div className="details">
@@ -32,6 +37,7 @@ const TransactionDetails = () => {
       </div>
       <div className="buttons">
           <button onClick={() => history.goBack()}>Back</button>
+          <button onClick={handleDelete}>Delete</button>
       </div>
     </div>
   );

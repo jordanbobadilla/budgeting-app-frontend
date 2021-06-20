@@ -24,6 +24,17 @@ const App = () => {
     }
   }
 
+  const deleteTransaction = async (index) => {
+    try {
+      await axios.delete(`${API}/transactions/${index}`)
+      const newTransactions =[...transactions]
+      newTransactions.splice(index, 1)
+      setTransactions(newTransactions)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const fetchData = async () => {
     try {
       const res = await axios.get(`${API}/transactions`)
@@ -49,7 +60,7 @@ const App = () => {
           <New addTransaction={addTransaction}/>
         </Route>
         <Route exact path={"/transactions/:index"}>
-          <Show addTransaction={addTransaction}/>
+          <Show deleteTransaction={deleteTransaction}/>
         </Route>
         <Route path="*">
           <NotFound/>
