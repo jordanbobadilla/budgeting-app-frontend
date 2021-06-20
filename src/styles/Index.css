@@ -23,7 +23,10 @@
 .index ul div {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+}
+
+.index ul .list {
+    padding-top: 10px;
 }
 
 .index ul div a {

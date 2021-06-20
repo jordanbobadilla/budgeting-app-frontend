@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 const Transaction = ({ transaction, index }) => {
   return (
     <li>
-      <div>
+      <div className="list">
         <div>
           <p className="date">{transaction.date}</p>
-          <Link>{transaction.name}</Link>
+          <Link to={`/transactions/${index}`}>{transaction.name}</Link>
         </div>
         <p>{transaction.amount}</p>
       </div>

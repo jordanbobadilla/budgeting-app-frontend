@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Index from './pages/Index';
 import New from './pages/New';
 import NotFound from './pages/NotFound';
+import Show from './pages/Show';
 import { apiURL } from './util/apiURL';
 const API = apiURL()
 
@@ -27,7 +28,6 @@ const App = () => {
     try {
       const res = await axios.get(`${API}/transactions`)
       setTransactions(res.data)
-      debugger
     } catch (error) {
       console.log(error);
     }
@@ -47,6 +47,9 @@ const App = () => {
         </Route>
         <Route exact path={"/transactions/new"}>
           <New addTransaction={addTransaction}/>
+        </Route>
+        <Route exact path={"/transactions/:index"}>
+          <Show addTransaction={addTransaction}/>
         </Route>
         <Route path="*">
           <NotFound/>
