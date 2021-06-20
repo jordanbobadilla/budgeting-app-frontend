@@ -6,11 +6,22 @@ import './App.css';
 import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import Index from './pages/Index';
+import New from './pages/New';
+import NotFound from './pages/NotFound';
 import { apiURL } from './util/apiURL';
 const API = apiURL()
 
 const App = () => {
   const [transactions, setTransactions] = useState([])
+
+  const addTransaction = async (newTransaction) => {
+    try {
+      const res = await axios.post(`${API}/transactions`, newTransaction)
+      setTransactions(prevTransaction => [...prevTransaction, res.data])
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const fetchData = async () => {
     try {
@@ -24,7 +35,7 @@ const App = () => {
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [transactions])
 
   return (
     <main className="App">
@@ -33,6 +44,12 @@ const App = () => {
         <Route exact path={"/"} component={Home}/>
         <Route exact path={"/transactions"}>
           <Index transactions={transactions}/>
+        </Route>
+        <Route exact path={"/transactions/new"}>
+          <New addTransaction={addTransaction}/>
+        </Route>
+        <Route path="*">
+          <NotFound/>
         </Route>
       </Switch>
     </main>

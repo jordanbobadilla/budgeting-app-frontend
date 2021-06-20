@@ -1,0 +1,52 @@
+.new{
+    margin: 40px;
+}
+
+.new h1 {
+    font-size: 36px;
+    color: #555;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.new form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 8px;
+    width: 30vw;
+}
+
+.new input {
+    border: 1px solid #999;
+    border-radius: 6px;
+    padding: 10px;
+    width: 30vw;
+    margin-bottom: 15px;
+    color: #999;
+    font-size: 14px;
+    outline: none;
+}
+
+.new button {
+    width: 200px;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid #999;
+    border-radius: 6px;
+    color: #555;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.new button:hover {
+    color: #777;
+}

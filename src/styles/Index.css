@@ -4,7 +4,7 @@
 
 .index h1{
     text-align: center;
-    margin: 20px 0;
+    margin: 40px;
     font-size: 36px;
     color: #555;
 }
@@ -16,7 +16,7 @@
 }
 
 .index ul li {
-    width: 80vw;
+    width: 40vw;
     list-style: none;
 }
 
