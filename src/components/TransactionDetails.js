@@ -37,6 +37,7 @@ const TransactionDetails = ({deleteTransaction}) => {
       </div>
       <div className="buttons">
           <button onClick={() => history.goBack()}>Back</button>
+          <button onClick={() => history.push(`${index}/edit`)}>Edit</button>
           <button onClick={handleDelete}>Delete</button>
       </div>
     </div>

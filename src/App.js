@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router';
 import './App.css';
 import NavBar from './components/NavBar';
+import Edit from './pages/Edit';
 import Home from './pages/Home';
 import Index from './pages/Index';
 import New from './pages/New';
@@ -19,6 +20,17 @@ const App = () => {
     try {
       const res = await axios.post(`${API}/transactions`, newTransaction)
       setTransactions(prevTransaction => [...prevTransaction, res.data])
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const updateTransaction = async (updatedTransaction, index) => {
+    try {
+      await axios.put(`${API}/transactions/${index}`, updatedTransaction)
+      const newTransaction = [...transactions]
+      newTransaction[index] = updatedTransaction
+      setTransactions(newTransaction)
     } catch (error) {
       console.log(error);
     }
@@ -61,6 +73,9 @@ const App = () => {
         </Route>
         <Route exact path={"/transactions/:index"}>
           <Show deleteTransaction={deleteTransaction}/>
+        </Route>
+        <Route exact path={"/transactions/:index/edit"}>
+          <Edit updateTransaction={updateTransaction}/>
         </Route>
         <Route path="*">
           <NotFound/>
