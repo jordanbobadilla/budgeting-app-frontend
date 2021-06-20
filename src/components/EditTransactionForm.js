@@ -30,16 +30,16 @@ const EditTransactionForm = ({ updateTransaction }) => {
     history.push("/transactions");
   };
 
-  const fetchTransaction = async () => {
-    try {
-      const res = await axios.get(`${API}/transactions/${index}`);
-      setTransaction(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+  
   useEffect(() => {
+      const fetchTransaction = async () => {
+        try {
+          const res = await axios.get(`${API}/transactions/${index}`);
+          setTransaction(res.data);
+        } catch (error) {
+          console.log(error);
+        }
+      };
     fetchTransaction();
   }, [index]);
 
